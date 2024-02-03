@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            #example {
+                color: green;
+            }
+            .weird {
+                font-family: 'Comic Sans MS', 'Chalkboard', 'Comic Neue', sans-serif;
+            }
+            .colorful {
+                color: magenta;
+            }
+            #area54 {
+                color: green;
+            }
+            h3 {
+                font-size: xx-small;
+            }
+        </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <h1>Table Layout</h1>
+
+        <div id="area54">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td class="colorful">C</td>
+                    <td>D</td>
+                </tr>
+            </table>
+        </div>
+
+        <table>
+            <tr>
+                <td>Alligator</td>
+                <td>
+                    <table>
+                        <tr><td>Badger</td></tr>
+                        <tr><td>Cheetah</td></tr>
+                        <tr><td>Dog</td></tr>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>E1</td>
+                                        <td>E2</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <h2 id="example">Bunch of words</h2>
+        <h2 class="weird">Bunch of words</h2>
+        <h2 class="colorful weird">Bunch of words</h2>
+        <h2 class="colorful">Bunch of words</h2>
+
+        <h3>I'm small</h3>
+
+        <form id="numberForm">
+            <input type="text" name="number1" id="number1" placeholder="Enter a number">
+            <input type="text" name="number2" id="number2" placeholder="Enter a number">
+
+            <input type="submit" id="submit_button" value="Compare">
+        </form>
+
+        <div id="result"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) { // wait for the page to load
+                document.getElementById("numberForm").addEventListener("submit", function(event) { // listen for the form submit
+                    event.preventDefault(); // don't reload the page
+                    var number1 = parseFloat(document.getElementById("number1").value); // get the first number
+                    var number2 = parseFloat(document.getElementById("number2").value); // get the second number
+
+                    if(number1 > number2) {
+                        document.getElementById("result").innerHTML = number1 + " is greater than " + number2;
+                    } else if(number1 < number2) {
+                        document.getElementById("result").innerHTML = number1 + " is less than " + number2;
+                    } else {
+                        document.getElementById("result").innerHTML = number1 + " is equal to " + number2;
+                    }
+
+                    document.getElementById("submit_button").disabled = true;
+                    document.getElementById("area54").innerHTML = "You have submitted the form";
+                });
+            });
+        </script>
+    </body>
+</html>

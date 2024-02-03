@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gavin Hulvey - Web Programming I</title>
+        <style>
+            h1 {
+                font-family: monospace;
+                text-align: center;
+            }
+            h3 {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+            #time {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <h1>Hello, world!</h1>
+        <h3>- Gavin Hulvey</h3>
+        <br>
+        <p style="font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-align: center;">Time:</p>
+        <p id="time"></p>
+
+        <script>
+            var today = new Date();
+            var time = today.toLocaleString('en-US', { timeZone: 'America/New_York' });
+            document.getElementById("time").innerHTML =  time;
+        </script>
+    </body>
+</html>
