@@ -176,19 +176,19 @@
             console.log(value0);
             switch(selectedOperation) {
                 case "ADD":
-                    var result = parseInt(value0, 10) + parseInt(display.value, 10);
+                    var result = parseFloat(value0, 10) + parseFloat(display.value, 10);
                     display.value = result;
                     break;
                 case "SUB":
-                    var result = parseInt(value0, 10) - parseInt(display.value, 10);
+                    var result = parseFloat(value0, 10) - parseFloat(display.value, 10);
                     display.value = result;
                     break;
                 case "MULT":
-                    var result = parseInt(value0, 10) * parseInt(display.value, 10);
+                    var result = parseFloat(value0, 10) * parseFloat(display.value, 10);
                     display.value = result;
                     break;
                 case "DIV":
-                    var result = parseInt(value0, 10) / parseInt(display.value, 10);
+                    var result = parseFloat(value0, 10) / parseFloat(display.value, 10);
                     display.value = result;
                     break;
             }
