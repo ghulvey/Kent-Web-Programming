@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Notes</h1>
+            <div>
+                <textarea id="myTextArea" rows="4" cols="40"></textarea>
+            </div>
+            <hr>
+            <div>
+                <button id="addTextButton" class="btn btn-primary">Add Text</button>
+                <button id="showTextButton" class="btn btn-secondary">Show Text</button>
+                <button id="saveNotesButton" class="btn btn-secondary">Save Notes</button>
+            </div>
+            <hr>
+        </div>
+    </body>
+    <script>
+        textarea = document.getElementById("myTextArea");
+        showTextButton = document.getElementById("showTextButton");
+        addTextButton = document.getElementById("addTextButton");
+        saveNotesButton = document.getElementById("saveNotesButton");
+        showTextButton.addEventListener("click", function() {
+            alert(textarea.value);
+        });
+        addTextButton.addEventListener("click", function() {
+            textarea.value += "Hello, World!";
+        });
+        saveNotesButton.addEventListener("click", function() {
+            localStorage.setItem("notes", textarea.value);
+            alert("Notes saved!")
+        });
+        window.addEventListener("load", function() {
+            storedNotes = localStorage.getItem("notes");
+            if (storedNotes) {
+                textarea.value = storedNotes;
+            }
+        });
+    </script>
+</html>
