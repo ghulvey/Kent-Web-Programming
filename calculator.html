@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cool Calculator</title>
+        <style>
+            button {
+                background-color: #1425a9;
+                color: white;
+                width: 40px;
+                height: 40px;
+            }
+
+            #clear {
+                width: 200px;
+            }
+
+            #calcDisplay {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            body {
+                width: 50%;
+                margin: 100px 25%;
+            }
+        </style>
+    </head>
+    <body>
+            <h1>Very cool calculator!!</h1>
+            <div>
+                <input id="calcDisplay"type="text">
+            </div>
+
+            <span>
+                <button id="add">+</button>
+                <button id="subtract">-</button>
+                <button id="multiply">*</button>
+                <button id="divide">/</button> 
+                <button id="equal">=</button>  
+            </span>
+            <br>
+            <span>
+                <button id="one">1</button>
+                <button id="two">2</button>
+                <button id="three">3</button>
+            </span>
+            <br>
+            <span>
+                <button id="four">4</button>
+                <button id="five">5</button>
+                <button id="six">6</button>
+            </span>
+            <br>
+            <span>
+                <button id="seven">7</button>
+                <button id="eight">8</button>
+                <button id="nine">9</button>
+            </span>
+            <br>
+            <span>
+                <button id="decimal">.</button>
+                <button id="zero">0</button>
+                <button id="negative">-</button>
+            </span>
+            <br>
+            <br>
+            <button id="clear">CLEAR</button>
+            <!-- <p style="visibility:none">
+                Answer is: 
+            </p> -->
+    </body>
+
+    <script>
+        var add = document.getElementById("add");
+        var sub = document.getElementById("subtract");
+        var mult = document.getElementById("multiply");
+        var div = document.getElementById("divide");
+        var equal = document.getElementById("equal");
+        var display = document.getElementById("calcDisplay");
+
+        var one = document.getElementById("one");
+        var two = document.getElementById("two");
+        var three = document.getElementById("three");
+        var four = document.getElementById("four");
+        var five = document.getElementById("five");
+        var six = document.getElementById("six");
+        var seven = document.getElementById("seven");
+        var eight = document.getElementById("eight");
+        var nine = document.getElementById("nine");
+        var zero = document.getElementById("zero");
+        var decimal = document.getElementById("decimal");
+        var negative = document.getElementById("negative");
+        var clear = document.getElementById("clear");
+    
+        var selectedOperation = null;
+        var value0 = 0;
+        add.addEventListener("click", function() {
+            console.log("HELLO")
+            selectedOperation = "ADD"
+            value0 = display.value;
+            display.value = ""
+        });
+
+        sub.addEventListener("click", function() {
+            selectedOperation = "SUB"
+            value0 = display.value;
+            display.value = ""
+        });
+
+        mult.addEventListener("click", function() {
+            selectedOperation = "MULT"
+            value0 = display.value;
+            display.value = ""
+        });
+
+        div.addEventListener("click", function() {
+            selectedOperation = "DIV"
+            value0 = display.value;
+            display.value = ""
+        });
+
+        one.addEventListener("click", function() {
+            display.value += "1";
+        });
+
+        two.addEventListener("click", function() {
+            display.value += "2";
+        });
+
+        three.addEventListener("click", function() {
+            display.value += "3";
+        });
+
+        four.addEventListener("click", function() {
+            display.value += "4";
+        });
+
+        five.addEventListener("click", function() {
+            display.value += "5";
+        });
+
+        six.addEventListener("click", function() {
+            display.value += "6";
+        });
+
+        seven.addEventListener("click", function() {
+            display.value += "7";
+        });
+
+        eight.addEventListener("click", function() {
+            display.value += "8";
+        });
+
+        nine.addEventListener("click", function() {
+            display.value += "9";
+        });
+
+        zero.addEventListener("click", function() {
+            display.value += "0";
+        });
+
+        decimal.addEventListener("click", function() {
+            display.value += ".";
+        });
+
+        negative.addEventListener("click", function() {
+            display.value = "-" + display.value;
+        });
+
+        clear.addEventListener("click", function() {
+            display.value = "";
+            selectedOperation = null;
+        });
+
+        equal.addEventListener("click", function() {
+            console.log(value0);
+            switch(selectedOperation) {
+                case "ADD":
+                    var result = parseInt(value0, 10) + parseInt(display.value, 10);
+                    display.value = result;
+                    break;
+                case "SUB":
+                    var result = parseInt(value0, 10) - parseInt(display.value, 10);
+                    display.value = result;
+                    break;
+                case "MULT":
+                    var result = parseInt(value0, 10) * parseInt(display.value, 10);
+                    display.value = result;
+                    break;
+                case "DIV":
+                    var result = parseInt(value0, 10) / parseInt(display.value, 10);
+                    display.value = result;
+                    break;
+            }
+        })
+
+
+    </script>
+</html>
