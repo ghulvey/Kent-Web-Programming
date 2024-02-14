@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Movie List</title>
+        <style>
+            @font-face {
+                font-family: "Comic-sans";
+                src: url('../../assets/Comic/ComicNeue-Regular.ttf')
+            }
+            * {
+                font-family: "Comic-sans";
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+            }
+            #cover {
+                width: 80px;
+                padding-right: 20px;
+            }
+            #information {
+                display: inline-flex;
+            }
+            /* #information img {
+                float: left;
+                width: 90px
+            } */
+        </style>
+    </head>
+    <body>
+        <h1>Movie List</h1>
+        <div id="information">
+            <img id="cover"  alt="Movie poster" />
+            <p id="plot"></p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Director</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="movieList">
+
+            </tbody>
+        </table>
+        <script>
+            movieTable = document.getElementById('movieList')
+            plotInformation = document.getElementById('plot')
+            moviePoster = document.getElementById('cover');
+            var movieList = []
+
+            window.onload = function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'movie-list.json', true)
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status == 200) {
+                        movieList = JSON.parse(xhr.responseText)
+                        var counter = 0;
+                        movieList.forEach(function(movie) {
+                            movieTable.innerHTML += '<tr><td>' + movie.title + '</td><td>' + movie.year + '</td><td>' + movie.director + '</td><td><button onclick="showPlot(' + counter + ')" >Show Plot</button></tr>'
+                            counter++;
+                        });
+                    }
+                }
+                xhr.send()
+            }
+
+            function showPlot(index) {
+                plotInformation.innerHTML = movieList[index].plot
+                cover.src = movieList[index].img
+            }
+        </script>
+    </body>
+</html>

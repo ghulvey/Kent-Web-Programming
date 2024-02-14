@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Movie List</title>
+        <style>
+            @font-face {
+                font-family: Comic;
+                src: url('./assets/Comic/');
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Movie List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Director</th>
+                    <th>Plot</th>
+                </tr>
+            </thead>
+            <tbody id="movieList">
+
+            </tbody>
+        </table>
+        <script>
+            movieTable = document.getElementById('movieList')
+            window.onload = function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'movie-list.json', true)
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status == 200) {
+                        var movieList = JSON.parse(xhr.responseText)
+                        movieList.forEach(function(movie) {
+                            movieTable.innerHTML += '<tr><td>' + movie.title + '</td><td>' + movie.year + '</td><td>' + movie.director + '</td><td>' + movie.plot + '</td></tr>'
+                        });
+                    }
+                }
+                xhr.send()
+            }
+        </script>
+    </body>
+</html>
