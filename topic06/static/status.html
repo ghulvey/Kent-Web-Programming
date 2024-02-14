@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Status List</title>
+        <style>
+            td, th, table {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Status List</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="statusTable">
+
+            </tbody>
+        </table>
+        <script>
+            statusTable = document.getElementById('statusTable')
+
+            window.onload = function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/api/status', true)
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4 && xhr.status == 200) {
+                        statusList = JSON.parse(xhr.responseText)
+                        statusList.forEach(function(status) {
+                            statusTable.innerHTML += '<tr><td>' + status.name + '</td><td>' + status.status + '</td></tr>'
+                        });
+                    }
+                }
+                xhr.send()
+            }
+
+            function showPlot(index) {
+                plotInformation.innerHTML = movieList[index].plot
+                cover.src = movieList[index].img
+            }
+        </script>
+    </body>
+</html>
