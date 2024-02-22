@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gavin Hulvey</title>
+        <meta charset="utf-8">
+        <meta lang="en">
+        <meta name="author" content="Gavin Hulvey">
+        <meta name="description" content="Gavin Hulvey's personal website">
+        <meta name="keywords" content="Gavin Hulvey, Kent State University, Computer Science, Software Developer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon source: https://icons8.com/icons/set/code -->
+        <link type="image/png" href="./assets/favicon.png" rel="icon">
+
+        <style>
+@font-face {
+    font-family: JetBrainsMono;
+    src: url('./assets/jetbrains-mono-ttf/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('./assets/Roboto/Roboto-Regular.ttf');
+}
+
+html, body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: JetBrainsMono;
+}
+
+h2 {
+    color: #0a316b;
+    font-size: 2em;
+}
+
+p, a, li {
+    font-family: Roboto;
+}
+
+header {
+    text-align: center;
+}
+
+/* Skill Section */
+
+.skills-title {
+    font-size: 1.5em;
+    margin-bottom: 0;
+}
+
+.skills > div {
+    float: left;
+    width: 50%;
+}
+
+.skills:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* School Section */
+
+.school-logo, .work-logo {
+    width: 80px;
+    padding: 20px;
+    border-right: gray solid 1px;
+}
+
+.school-logo > img, .work-logo > img {
+    width: 100%;
+}
+
+.school {
+    width: 70%;
+    margin: 20px 15%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: start;
+}
+
+/* Work Section */
+
+.work {
+    width: 100%;
+    margin: 40px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: start;
+}
+
+.work:last-of-type {
+    margin-bottom: 80px;
+}
+
+.work > .work-info, .school > .school-info {
+    padding: 20px;
+}
+
+.school-info h3, .school-info p {
+    margin: 0;
+}
+
+
+.work-info h3, .work-info p {
+    margin: 0;
+}
+
+.work-info h3 {
+    margin-bottom: 10px;
+}
+
+.work-employeer {
+    padding-bottom: 3px;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Footer */
+
+footer {
+    background-color: #e2e2e2;
+    padding: 20px 0;
+}
+
+.footer-icons {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.footer-icons > a > img {
+    width: 40px;
+    margin: 10px;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+.footer-text p {
+    margin: 0;
+}
+
+footer p:first-of-type {
+    font-weight: bold;
+}
+
+footer p:last-of-type {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Backgrounds */
+
+.white-section {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.bg-alt {
+    background-color: #f8f8f8;
+    padding: 40px 15%;
+}
+
+#main-section {
+    /* https://www.rawpixel.com/image/593171/programmer-code-screen */
+    background:linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(./assets/code-background.jpg);
+    padding: 40px 15%;
+}
+
+#main-section h2 {
+    margin-top: 0;
+}
+
+/* Nav */
+
+nav {
+    background-color: #0a316b;
+    color: white;
+    text-align: left;
+    padding: 10px 15%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+}
+
+.page-links a:hover {
+    background-color: #001432;
+}
+
+.social-links, .page-links {
+    list-style-type: none;
+}
+
+.social-links, .page-links {
+    padding: 0;
+    margin: 0;
+}
+
+.social-links > li, .page-links > li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.social-links > li > a > img {
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+}
+
+/* Mobile nav */
+#mobile-links {
+    display: none;
+}
+
+#mobile-nav-toggle {
+    display: none;
+}
+
+#mobile-check {
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    /* Scale down skills to one column */
+    .skills > div {
+        width: 100%;
+    }
+
+    .skills {
+        margin: 16px 0;
+    }
+
+    .skills > div > ul {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 650px){
+
+    /* Allow school to take up the full width */
+    .school {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+
+    /* Scale down work to one column */
+
+    .work {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;  
+    }
+
+    .work-logo {
+        border-right: none;
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .work-title, .work-date, .work-employeer {
+        text-align: center;
+    }
+
+    /* Make sections wider */
+
+    .white-section {
+        width: 80%;
+    }
+
+    .bg-alt {
+        padding: 40px 10%;
+    }
+
+    #main-section {
+        padding: 40px 10%;
+    }
+
+    /* Mobile nav */
+
+    nav {
+        padding: 10px 10%;
+    }
+
+    .social-links {
+        text-align: center;
+    }
+
+    .page-links {
+        display: none;
+    }
+
+    #mobile-nav-toggle {
+        display: block;
+        text-align: right;
+        font-size: 28px;
+        padding: 0;
+    }
+
+    #mobile-check {
+        display: block;
+    }
+
+    #mobile-links {
+        display: none;
+        padding: 20px 0;
+        background-color: #001432;
+    }
+
+    #mobile-links ul {
+        list-style: none;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    #mobile-links ul li {
+        padding: 0;
+        margin: 0;
+    }
+
+    #mobile-links ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0;
+        padding-left: 10%;
+        display: block;
+    }
+
+
+    #mobile-links ul li a:hover {
+        background-color: #0a316b;
+    }
+
+}
+
+@media screen and (min-width: 601px){
+
+    /* Hide the mobile menu, negates the javascript */
+
+    #mobile-check {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    /* Scale down school to one column */
+
+    .school {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+
+    .school-logo {
+        border-right: none;
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .school-info {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 400px){
+
+    /* Make sections even wider */
+
+    .white-section {
+        width: 90%;
+    }
+
+    .bg-alt {
+        padding: 40px 5%;
+    }
+
+    #main-section {
+        padding: 40px 5%;
+    }
+
+    nav {
+        padding: 10px 5%;
+    }
+
+    #mobile-links ul li a {
+        padding-left: 5%;
+    }
+}
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Gavin Hulvey</h1>
+            <p>Student @ Kent State University</p>
+            <nav>
+                <a href="javascript:void(0);" id="mobile-nav-toggle" onclick="toggleNav()">&#9776;</a>
+                <ul class="page-links">
+                    <li><a href="#summary">Summary</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#work">Work</a></li>
+                </ul>
+                <ul class="social-links">
+                    <li><a href="https://linkedin.com/in/gavin-hulvey"><img src="./assets/linkedin-mark-white.svg" /></a></li>
+                    <li><a href="https://github.com/ghulvey"><img src="./assets/github-mark-white.svg" /></a></li>
+                </ul>
+            </nav>
+            <div id="mobile-check">
+                <div id="mobile-links">
+                    <ul>
+                        <li><a href="#summary" onclick="toggleNav()">Summary</a></li>
+                        <li><a href="#education" onclick="toggleNav()">Education</a></li>
+                        <li><a href="#work" onclick="toggleNav()">Work</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="main-section">
+                <h2 id="summary">Summary</h2>
+                <p>Senior at Kent State University pursuing a degree in Computer Science. 
+                    Plans to enter the workforce as a software developer. Past work experience 
+                    includes experience in DevOps, cloud engineering, help desk support, device repair, 
+                    scripting, system administration, and application development. I am currently 
+                    interested in positions to increase my skills and gain experience as a 
+                    software developer.</p>
+
+                <h3 class="skills-title">Skills</h3>
+                <div class="skills">
+                    <div>
+                        <ul>
+                            <li>Object Oriented Programming using <code>C#</code> and <code>C++</code></li>
+                            <li>Creating front and backend web apps</li>
+                            <li>Git and <abbr title="Subversion">SVN</abbr> for code management</li>
+                            <li>Infrastructure as code using Terraform</li>
+                            <li>Deploying and managing Kubernetes</li>
+                            <li>deployments with Helm</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Creating and updating databases using SQL</li>
+                            <li>Developing <abbr title="Continuous integration">CI</abbr>/<abbr title="Continuous deployment">CD</abbr> pipelines using GitHub Actions</li>
+                            <li>Troubleshooting Windows, Mac, and Chrome OS issues</li>
+                            <li>Willingness to adapt to new position</li>
+                            <li>Experience leading and training others</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <div class="bg-alt">
+                <h2 id="education" class="center">Education</h2>
+                <div>
+                    <div class="school">
+                        <div class="school-logo"><img src="./assets/kent_state_university_stacked_2-color.png" /></div>
+                        <div  class="school-info">
+                            <h3>Kent State University</h3>
+                            <p><strong>Computer Science</strong></p>
+                            <p>Honors College Student</p>
+                            <p><em>Aug 2021 - Dec 2024</em></p>
+                        </div>
+                    </div>
+                    <div class="school">
+                        <div class="school-logo"><img src="./assets/MCCCLogo.png"/></div>
+                        <div  class="school-info">
+                            <h3>Medina County Career Center</h3>
+                            <p><strong>Software Engineering & Web Development</strong></p>
+                            <p><em>2019 - 2021</em></p>
+                        </div>
+                    </div>
+                    <div class="school">
+                        <div class="school-logo"><img src="./assets/BuckeyeLogo.png"/></div>
+                        <div class="school-info">
+                            <h3>Buckeye High School</h3>
+                            <p><strong>Diploma</strong></p>
+                            <p><em>2017 - 2021</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="white-section">
+                <h2 id="work" class="center">Work Experience</h2>
+                <div>
+                    <div class="work">
+                        <div class="work-logo"><img src="./assets/kent_state_university_stacked_2-color.png" /></div>
+                        <div class="work-info">
+                            <h3 class="work-title">Application Developer</h3>
+                            <p class="work-employeer">Kent State University</p>
+                            <p class="work-date"><em>January 2024 - Current</em></p>
+                            <ul>
+                                <li>Develop low code applications using Microsoft PowerApps.</li>
+                                <li>Visualize data using PowerBI.</li>
+                                <li>Create automation solutions using Microsoft Power Automate.</li>
+                                <li>Manage departmental SharePoint websites.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-logo"><img src="./assets/kent_state_university_stacked_2-color.png" /></div>
+                        <div class="work-info">
+                            <h3 class="work-title">Lead IT Technician</h3>
+                            <p class="work-employeer">Kent State University</p>
+                            <p class="work-date"><em>January 2022 - January 2024</em></p>
+                            <ul>
+                                <li>Provide local support to the university's administrative departments (all non-academic departments).</li>
+                                <li>Troubleshoot and resolve computer issues in-person and remotely via Phone or Microsoft Teams.</li>
+                                <li>Manage user support requests in TeamDynamix help desk software.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-logo"><img src="./assets/HylandLogo.png" /></div>
+                        <div class="work-info">
+                            <h3 class="work-title">Cloud Platform Engineering Intern</h3>
+                            <p class="work-employeer">Hyland Software</p>
+                            <p class="work-date"><em>May 2023 - August 2023</em></p>
+                            <ul>
+                                <li>Created CI/CD pipelines in GitHub Actions.</li>
+                                <li>Deployed AWS and other cloud resources using Terraform infrastructure as code.</li>
+                                <li>Developed Datadog monitors.</li>
+                                <li>Deployed and worked with Kubernetes tools for policy management, backups and networking.</li>
+                                <li>Documented progress and changes in Jira and Confluence.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-logo"><img src="./assets/MTDLogo.jpeg"/></div>
+                        <div class="work-info">
+                            <h3 class="work-title">IT Service Desk & Operations Intern</h3>
+                            <p class="work-employeer">MTD Products</p>
+                            <p class="work-date"><em>May 2022 - August 2022</em></p>
+                            <ul>
+                                <li>Provide end-user support for employees in-person at the corporate headquarters or remote support to satellite offices.</li>
+                                <li>Create and modify user accounts within Active Directory.</li>
+                                <li>Manage user accounts within Microsoft/Office 365 and Exchange.</li>
+                                <li>Managed devices using Microsoft SCCM and Microsoft Intune.</li>
+                                <li>Created and supported virtual machines in Azure and VMWare Horizon.</li>
+                                <li>Developed an application to keep track of IT inventory in storage.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-logo"><img src="./assets/MCCCLogo.png" /></div>
+                        <div class="work-info">
+                            <h3 class="work-title">Desktop Technician</h3>
+                            <p class="work-employeer">Medina County Career Center</p>
+                            <p class="work-date"><em>June 2020 - August 2021</em></p>
+                            <ul>
+                                <li>Maintained Windows PCs, Chromebooks, printers/copiers, tablets, Cisco IP Phones, interactive displays, and presentation equipment in a public school.</li>
+                                <li>Performed device repairs on laptops and Chromebooks.</li>
+                                <li>Managed the deployment of newly purchased items.</li>
+                                <li>Served as a mentor and trainer for student interns.</li>
+                                <li>Troubleshoot end-user issues over the phone and through helpdesk software.</li>
+                                <li>Managed asset records and asset tracking.</li>
+                                <li>Assisted the Director of Technology with administrative duties.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section
+        </main>
+        <footer>
+            <div class="footer-icons">
+                <a href="https://linkedin.com/in/gavin-hulvey"><img src="./assets/iconmonstr-linkedin-4.svg" /></a>
+                <a href="https://github.com/ghulvey"><img src="./assets/github-mark.svg" /></a>
+            </div>
+            <div class="footer-text">
+                <p>Gavin Hulvey</p>
+                <p>Updated February 2024</p>
+            </div>
+        </footer>
+    </body>
+    <script>
+        function toggleNav() {
+            var mobile = document.getElementById("mobile-links");
+            var toggle = document.getElementById("mobile-nav-toggle");
+            if (mobile.style.display === "block") {
+                mobile.style.display = "none";
+                toggle.innerHTML = "&#9776;";
+            } else {
+                mobile.style.display = "block";
+                toggle.innerHTML = "&#10005;";
+            }
+        }
+    </script>
+</html>
