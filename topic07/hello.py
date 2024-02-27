@@ -11,7 +11,7 @@ movies_collection = movies_db.movies_collection
 def index():
     return send_from_directory('static', 'index.html')
 
-@app.route('/api/movies.json')
+@app.route('/api/movies')
 def movies():
     movies = list(movies_collection.find({}))
 

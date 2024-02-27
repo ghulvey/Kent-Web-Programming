@@ -36,7 +36,7 @@
             movieTable = document.getElementById('movieList')
             window.onload = function() {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', './api/movies.json', true)
+                xhr.open('GET', './api/movies', true)
                 xhr.onreadystatechange = function() {
                     if(xhr.readyState == 4 && xhr.status == 200) {
                         var movieList = JSON.parse(xhr.responseText)
