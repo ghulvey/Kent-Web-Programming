@@ -16,7 +16,7 @@ def get_quotes():
     data = data[(int(page)-1)*5:int(page)*5]
     count = collection.count_documents({})
     maxPages = int(count/5)+1
-    if int(page) > maxPages:
+    if (int(page) > maxPages) or (int(page) < 1):
         return redirect('/')
 
     return render_template('quotes.html', quotes=data, count=count, page=int(page), maxPages=maxPages)

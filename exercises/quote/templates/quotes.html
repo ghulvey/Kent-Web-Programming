@@ -31,7 +31,7 @@
             </thead>
             {% for quote in quotes %}
                 <tr>
-                    <td>{{ quote.text|e}}</td>
+                    <td>{{ quote.text}}</td>
                     <td>{{ quote.author|e }}</td>
                     <td><a href="/delete/{{ quote._id }}" class="btn btn-danger">Delete</a> <a href="/edit/{{ quote._id }}" class="btn btn-primary">Edit</a></td>
                 </tr>
@@ -39,15 +39,15 @@
         </table>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                {% if page > 1 %}
-              <li class="page-item"><a class="page-link" href="/?page={{ page - 1}}">Previous</a></li>
-              {% endif %}
+                
+              <li class="page-item {% if page <= 1 %} disabled {% endif %}"><a class="page-link" href="/?page={{ page - 1}}">Previous</a></li>
+
               {% for i in range(maxPages)%}
                 <li class="page-item {% if page == (i+1)%} active {% endif %}"><a class="page-link" href="/?page={{ i  + 1}}">{{ i + 1 }}</a></li>
                 {% endfor %}
-              {% if page < maxPages  %}
-              <li class="page-item"><a class="page-link" href="/?page={{ page + 1}}">Next</a></li>
-              {% endif %}
+  
+              <li class="page-item {% if page >= maxPages %} disabled {% endif %}"><a class="page-link" href="/?page={{ page + 1}}">Next</a></li>
+       
             </ul>
           </nav>
     </main>
